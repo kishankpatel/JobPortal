@@ -1,0 +1,29 @@
+<div class="login-form">
+  <%= form_with(model: @invitation, url:"/invitation/reject_job", local: true) do |f| %>
+    <h2 class="text-center">Reject invitation</h2>   
+    <% if @invitation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this @invitation from being saved:</h2>
+
+        <ul>
+          <% @invitation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <%end%>
+    <input type="hidden" name="id" value="<%=params[:id]%>">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <%= f.text_area :rejected_reason, autofocus: true, autocomplete: "email", class: "form-control", required: true, placeholder:"Reason for rejecting" %>    
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Reject", :class => "btn btn-primary login-btn btn-block" %>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+
+</div>

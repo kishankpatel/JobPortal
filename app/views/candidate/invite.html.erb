@@ -1,0 +1,41 @@
+<div class="login-form">
+  <%= form_with(model: @invitation, url:"/candidates/send_invitation", local: true) do |f| %>
+    <h2 class="text-center">Send invitation</h2>   
+    <% if @invitation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this @invitation from being saved:</h2>
+
+        <ul>
+          <% @invitation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <%end%>
+    <input type="hidden" name="candidate_id" value="<%=params[:id]%>" >
+    <input type="hidden" name="job_id" value="<%=params[:job_id]%>">
+    <div class="form-group">
+      <div class="input-append date form_datetime" data-date="2013-02-21T15:25:00Z">
+        <%= f.text_field :interview_date, class: "form-control", :value => "", required: true, placeholder:"Interview Date"%> 
+        <span class="add-on"><i class="icon-remove"></i></span>
+        <span class="add-on"><i class="icon-calendar"></i></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Post Job", :class => "btn btn-primary login-btn btn-block" %>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "dd/mm/yyyy - hh:ii",
+        autoclose: true,
+        todayBtn: true,
+        startDate: new Date(),
+        minuteStep: 10
+    });
+</script>  

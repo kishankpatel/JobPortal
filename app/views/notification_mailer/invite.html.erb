@@ -1,5 +1,16 @@
-<h1>Notification#invite</h1>
-
 <p>
-  <%= @greeting %>, find me in app/views/notification_mailer/invite.html.erb
+	Dear <%=@candidate.name%>,	
+</p>
+<p>
+	Your interview is scheduled  on <%=@invitation.interview_date.strftime("%m/%d/%Y %H:%M %p")%> for ROR developer role.
+</p>
+<br>
+<p>
+	Going? <a href="/invitation/accept/<%=@invitation.id%>">Yes</a> <a href="/invitation/reject/<%=@invitation.id%>">No</a>
+</p>
+<p>
+	Regards,
+</p>
+<p>
+	<%=@job.organization.name%>
 </p>

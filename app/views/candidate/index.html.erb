@@ -7,6 +7,8 @@
       <th>Email</th>
       <th>Applied Job</th>
       <th>Applied On</th>
+      <th>Status</th>
+      <th>Response status</th>
       <th></th>
     </tr>
   </thead>
@@ -15,11 +17,14 @@
     <% @jobs.each do |job| %>
       <% job.candidates.each do |candidate| %>
         <tr>
+          <%invitation = candidate.invitations.where(:job_id => job.id).last%>
           <td><%= candidate.name %></td>
           <td><%= candidate.email %></td>
           <td><a href="/jobs/<%=job.id%>" title="<%=job.description%>"><%= job.title %></a></td>
           <td><%= candidate.candidates_jobs.where(:job_id => job.id).first.created_at %></td>
-          <td><a href="/candidates/invite/<%=candidate.id%>">Invite</a></td>
+          <td><%=invitation.present? ? "Invitations sent" : "Invitations not sent"%><br></td>
+          <td><%= invitation.present? ? (invitation.is_accepted ? "Accepted" : (invitation.is_accepted == false ? "Rejected" : "Not Decided")) : ""%></td>
+          <td><a href="/candidates/invite/<%=candidate.id%>/?job_id=<%=job.id%>">Invite</a></td>
         </tr>
       <% end %>
    <%end%>
