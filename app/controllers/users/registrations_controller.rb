@@ -1,34 +1,41 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
 
-  # POST /resource
   def create
-    organization = Organization.where(:name => params[:user][:organization]).first
-    if organization.present?
-      flash[:alert] = "Organization already exists, Please try another one."
-      redirect_to request.referrer
-      return
+    organization_name =  params[:user][:organization_name]
+    if Organization.find_by_name(organization_name).nil?
+      @organization = Organization.new
+      @organization.name = organization_name
+      @organization.save
+    else
+      @organization = Organization.find_by_name(params[:user][:organization_name])
     end
-    org = Organization.create(:name => params[:user][:organization])
-    params[:user][:organization_id] = org.id
-    begin
-      User.create(
-        :email => params[:user],
-        :password => params[:password],
-        :organization_id => params[:organization_id],
-      )
-      flash[notice] = "Registrations Successful, please sign in to continue."
-      redirect_to root_path
-    rescue Exception => e
-       flash[:alert] = e.message    
-    end
+
+    params[:user][:organization_id] = @organization.id
+    build_resource(registration_params)
+
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      else
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
   end
-  
+  end  
+
   private
-  def user_params
-    params.require(:user).permit(:email, :password, :organization_id)
+
+  def registration_params
+    params.require(:user).permit(:email, :organization_id, :password, :password_confirmation)
   end
+
 end

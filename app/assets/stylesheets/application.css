@@ -13,3 +13,324 @@
  *= require_tree .
  *= require_self
  */
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+a{color:#337ab7;}
+a:hover,a:focus{color:#337ab7;background-color: transparent;text-decoration: underline;cursor: pointer;}
+.fl{float: left;}
+.fr{float: right;}
+.cb{clear:both;}
+.main_div{margin-top: 50px}
+.login-form {
+  width: 385px;
+  margin: 70px auto 0;
+}
+.login-form form {        
+  margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .login-btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.input-group-addon .fa {
+    font-size: 18px;
+}
+.login-btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+.social-btn .btn {
+  border: none;
+      margin: 10px 3px 0;
+      opacity: 1;
+}
+.social-btn .btn:hover {
+    opacity: 0.9;
+}
+.social-btn .btn-primary {
+      background: #507cc0;
+  }
+.social-btn .btn-info {
+  background: #64ccf1;
+}
+.social-btn .btn-danger {
+  background: #df4930;
+}
+.or-seperator {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.or-seperator i {
+    padding: 0 10px;
+    background: #f7f7f7;
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}  
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
+.profile-img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 20px;
+  margin-top: 10px;
+}
+
+.user_profile {
+    float: left;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #53a855;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;
+    padding-top: 4px;
+    background-color: #53a855;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+}
+.user_list{display:none;max-height: 400px;overflow-y: auto;}
+.user_list a{margin-top:10px;display: inline-block;}
+.user_name {
+    float: left;
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+.alert {
+    position: fixed;
+    top: 60px;
+    right: 30px;
+    z-index: 9999;
+}
+.alert button.close {
+    margin-left: 10px;
+    position: relative;
+    top: -15px;
+    right: -10px;
+}
+.alert button.close:hover{color:red;opacity: 1;}
+.pf_img1{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.more_icon{height:20px;}
+.group_container .panel-heading .dropdown-menu{min-width:60px;}
+.attach_file{cursor:pointer;}
+img.modal_group_img {
+    width: 100%;
+}
+.panel-body ul li {
+    margin-bottom: 10px;
+}
+
+.user_list > div {
+    border-bottom: 1px solid #eee;
+}
+.user_list > div:hover {
+    background: #eee;
+}
+img.uploaded_image {
+    height: 60px;
+    display:none;
+}
+.text_center{text-align: center;}
+.text_left{text-align: left;}
+.text_right{text-align: right;}
+.user_groups_sec .dropdown-menu, .user_conv_sec .dropdown-menu{max-height: 300px;overflow-y: auto;position: absolute;width: 200px;}
+.groups_count, .conv_count{
+  border-radius: 50%;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+.groups_count:hover, .conv_count:hover, .groups_count:active, .conv_count:active{
+  background: #eee;
+  text-decoration: none;
+}
+.scarch_user_sec {
+    position: relative;
+}
+.display_user_list {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #aaa;
+    max-height: 300px;
+    overflow-y: auto;
+    display:none;
+    z-index: 9;
+}
+
+.display_user_list a:hover {
+    background: #eee;
+}
+
+.display_user_list a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+}
+.scarch_user_sec{display:none;margin: 9px 0;}
+.scarch_user_sec input#search_user {
+    border-radius: 10px;
+    border: 1px solid #333;
+    padding: 5px;
+    outline: none;
+}
+.scarch_user_sec input#search_user:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: -100%;
+  margin-top: -1px;
+  right: auto;
+}
+ul.dropdown-menu li a {
+    display: block;
+    padding: 8px;
+}
+ul.dropdown-menu li:not(:last-child) a{border-bottom: 1px solid #ddd;}
+ul.dropdown-menu {
+    padding: 0;
+}
+a.back_button:hover {
+    box-shadow: 0 2px 5px #999;
+}
+a.back_button {
+    border: 1px solid #444;
+    color: #444;
+    display: inline-block;
+    text-decoration: none;
+    padding: 2px 5px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+.pf_cntr, .chat_info_cntr{
+  display: inline-block;
+  vertical-align: middle;
+}
+.chat_info_cntr p{
+  margin: 0;
+  font-size: 11px;
+}
+.chat_info_cntr span.glyphicon-arrow-right{
+  font-size: 8px;
+}
+.chats_list {
+    width: 60%;
+    -webkit-box-shadow: 0 0 15px #999;
+    box-shadow: 0 0 15px #999;
+    position: fixed;
+    top: 89px;
+    max-height: calc(100% - 100px);
+    overflow-y: auto;
+}
+
+.chat_list_heading h3{
+  margin: 0;
+  font-size: 16px;
+  padding: 6px;
+  background: #10526b;
+  display: inline-block;
+  color: #fff;
+  border-radius: 3px 3px 0 0;
+}
+.chats_list .chat_list_body ul li:hover{background:#f2f2f2}
+.chats_list .chat_list_body ul li:last-child:hover{border-radius: 0 0 5px 5px}
+.chats_list .chat_list_body {
+    padding: 0;
+}
+.chats_list .chat_list_body ul{margin: 0;}
+.chats_list .chat_list_body ul li{margin:0;padding:5px 10px;border-bottom: 1px solid #eee;}
+.chats_list.col-md-12{
+  padding:0;
+} 
+
+.header_fixed{
+  position: fixed;
+  width: 100%;
+  border-radius: 0;
+  top: 0;
+  margin: 0;
+  z-index: 999;
+}
+.main_cntr{margin-top:60px;}
+.modal-content {
+    border-radius: 0;
+}
+.modal-header .close {
+    outline: none;
+}
+.modal-header .close:hover {
+    color: red;
+}
+textarea{resize:none;}
+.form-group span.input-group-addon,.form-group .form-control,input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+    border-radius: 0;
+}
+.job_details {
+    margin: 20px 20px 20px 80px;
+}
+.job_details .job_th {
+    font-weight: bold;
+}
+.job_details .job_td {
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+.apply_job_page .login-form{margin: 20px}
+@media only screen and (max-width: 768px) {
+  .container.main_cntr{padding:0 5px;}
+  ul.dropdown-menu li:not(:last-child) a {
+      border-bottom: 1px solid #333;
+  }
+  .navbar-nav {
+    margin: 0;
+  }
+  .header_menu_sec .header_menu_btn{
+      position: fixed;
+      top: 0;
+      right: 0;
+  }
+  .header_menu_sec .header_menu{
+    position: absolute !important;
+    background: #222 !important;
+    right: 0;
+    border-radius: 0;
+  }
+  .chats_list {
+    width: 97%;
+    margin: 0 auto;
+    left:0;
+    right:0;
+    height: calc(100% - 100px);
+  }
+}
+
+

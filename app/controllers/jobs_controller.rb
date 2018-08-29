@@ -1,15 +1,19 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply,:approve,:unapprove]
+  skip_before_action :authenticate_user!, only: :apply
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = current_user.organization.jobs.approved
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    if @job.is_archive
+      flash[:alert] = "Job has been removed."
+      redirect_to root_path
+    end
   end
 
   # GET /jobs/new
@@ -25,10 +29,11 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+    @job.user_id = current_user.id
+    @job.organization_id = current_user.organization_id
 
     respond_to do |format|
       if @job.save
-        @job.update_attributes(:user_id => current_user.id, :organization_id => current_user.organization_id)
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
@@ -55,17 +60,39 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
-    @job.destroy
+    @job.update_attribute :is_archive, true
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+
+  def apply
+    @candidate = Candidate.new
+    if @job.blank?
+      respond_to do |format|
+        format.html { redirect_to root_path, alert: "No jobs found with id: #{params[:id]}." }
+        format.json { head :no_content }
+      end
+    end      
+  end
+
+  def approve
+    @job.update_attribute :is_approve, true   
+    flash[:notice] = "Job has been approved."
+    redirect_to request.referrer 
+  end
+  def unapprove
+    @job.update_attribute :is_approve, false
+    flash[:notice] = "Job has been unapproved."
+    redirect_to request.referrer 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:id])
+      @job = Job.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

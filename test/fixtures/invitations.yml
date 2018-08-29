@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 1
+  job_id: 1
+  organization_id: 1
+  interview_date: 2018-08-29 16:23:16
+  is_accepted: false
+
+two:
+  candidate_id: 1
+  job_id: 1
+  organization_id: 1
+  interview_date: 2018-08-29 16:23:16
+  is_accepted: false

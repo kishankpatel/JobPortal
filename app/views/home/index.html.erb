@@ -1,1 +1,9 @@
-<%=link_to "Jobs", "/jobs"%>
+<%unless user_signed_in?%>
+  <%=render partial:"candidate"%>
+<%else%>
+  <%if current_user.role == "org_user"%>
+    <%=render partial:"org_user"%>
+  <%else%>
+    <%=render partial:"admin"%>
+  <%end%>
+<%end%>
