@@ -9,7 +9,7 @@
       <th>Applied On</th>
       <th>Status</th>
       <th>Response status</th>
-      <th></th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -20,19 +20,50 @@
           <%invitation = candidate.invitations.where(:job_id => job.id).last%>
           <td><%= candidate.name %></td>
           <td><%= candidate.email %></td>
-          <td><a href="/jobs/<%=job.id%>" title="<%=job.description%>"><%= job.title %></a></td>
+          <td><%= job.title %></td>
           <td><%= candidate.candidates_jobs.where(:job_id => job.id).first.created_at %></td>
-          <td><%=invitation.present? ? "Invitations sent" : "Invitations not sent"%><br></td>
+          <td><%=invitation.present? ? "Invitations sent" : "Invitations not sent"%></td>
           <td><%= invitation.present? ? (invitation.is_accepted ? "Accepted" : (invitation.is_accepted == false ? "Rejected" : "Not Decided")) : ""%></td>
           <td><a href="/candidates/invite/<%=candidate.id%>/?job_id=<%=job.id%>">Invite</a></td>
         </tr>
       <% end %>
    <%end%>
   </tbody>
+  <tfoot>
+    <tr>
+      <th style="visibility:hidden;">Name</th>
+      <th style="visibility:hidden;">Email</th>
+      <th>Applied Job</th>
+      <th style="visibility:hidden;">Applied On</th>
+      <th>Status</th>
+      <th>Response status</th>
+      <th style="visibility:hidden;">Action</th>
+    </tr>
+  </tfoot>
 </table>
 <br>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('#candidate_list').DataTable();
-  } );
+    $(document).ready(function() {
+        $('#candidate_list').DataTable( {
+            initComplete: function () {
+                this.api().columns().every( function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo( $(column.footer()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+     
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            }
+        } );
+    } );
 </script>
