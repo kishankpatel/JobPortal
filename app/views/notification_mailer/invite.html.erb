@@ -6,7 +6,9 @@
 </p>
 <br>
 <p>
-	<a href="/invitation/accept/<%=@invitation.id%>">Accept</a> <a href="/invitation/reject/<%=@invitation.id%>">Reject</a>
+	<%url = Rails.env == "development" ? "http://localhost:3000" : "https://jobportal-online.herokuapp.com/"%>
+
+	<a href="<%=url%>/invitation/accept/<%=@invitation.id%>">Accept</a> <a href="<%=url%>/invitation/reject/<%=@invitation.id%>">Reject</a>
 </p>
 <p>
 	Regards,

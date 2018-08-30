@@ -17326,3 +17326,729 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/candidates" for 127.0.0.1 at 2018-08-30 15:45:16 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CandidateController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:3
+Started GET "/candidates" for 127.0.0.1 at 2018-08-30 15:45:16 +0530
+  Rendering candidate/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/candidate/index.html.erb:17
+Processing by CandidateController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrganization Load (5.5ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:3
+  [1m[36mCandidate Load (0.9ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/candidate/index.html.erb:18
+  Rendering candidate/index.html.erb within layouts/application
+  [1m[36mJob Load (3.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/candidate/index.html.erb:17
+  [1m[36mCandidate Load (0.6ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mInvitation Load (0.6ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (1.2ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mInvitation Load (1.2ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidatesJob Load (1.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mInvitation Load (7.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidatesJob Load (1.0ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  [1m[36mCandidate Load (0.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mInvitation Load (0.7ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidatesJob Load (0.9ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mInvitation Load (1.2ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  Rendered candidate/index.html.erb within layouts/application (86.7ms)
+  [1m[36mCandidatesJob Load (136.7ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  Rendered candidate/index.html.erb within layouts/application (184.2ms)
+Completed 200 OK in 620ms (Views: 542.6ms | ActiveRecord: 26.7ms)
+
+
+Completed 200 OK in 541ms (Views: 369.9ms | ActiveRecord: 166.0ms)
+
+
+Started GET "/candidates/invite/3/?job_id=2" for 127.0.0.1 at 2018-08-30 15:45:21 +0530
+Processing by CandidateController#invite as HTML
+  Parameters: {"job_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering candidate/invite.html.erb within layouts/application
+  Rendered candidate/invite.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/candidates/send_invitation" for 127.0.0.1 at 2018-08-30 15:45:25 +0530
+Processing by CandidateController#send_invitation as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8OmKQKxFBdoNuCwku0/ceZYIht5JktOEsHdYS4qa3igCJO9cAToS5hiHeUmlCq0KF/PfHue3x3Jv20zpOA+Tuw==", "candidate_id"=>"3", "job_id"=>"2", "invitation"=>{"interview_date"=>"31/08/2018 - 15:30"}, "commit"=>"Post Job"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCandidate Load (0.4ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:11
+  [1m[36mJob Load (0.9ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:12
+  [1m[36mOrganization Load (1.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCandidate Load (0.3ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mInvitation Create (0.4ms)[0m  [1m[32mINSERT INTO "invitations" ("candidate_id", "job_id", "organization_id", "interview_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["candidate_id", 3], ["job_id", 2], ["organization_id", 1], ["interview_date", "2018-08-31 15:30:00"], ["created_at", "2018-08-30 10:15:25.977023"], ["updated_at", "2018-08-30 10:15:25.977023"]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/notification_mailer.rb:13
+  Rendering notification_mailer/invite.html.erb within layouts/mailer
+  Rendered notification_mailer/invite.html.erb within layouts/mailer (0.6ms)
+NotificationMailer#invite: processed outbound mail in 668.1ms
+Sent mail to kishankumarpatel93@gmail.com (4199.0ms)
+Date: Thu, 30 Aug 2018 15:45:26 +0530
+From: kishanptl.kp@gmail.com
+To: kishankumarpatel93@gmail.com
+Message-ID: <5b87c3beb9e2e_46061a6aa5873950@bit-H81M-WW.mail>
+Subject: Invitation for interview from test
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>
+	Dear Kishan,	
+</p>
+<p>
+	Your interview is scheduled  on 08/31/2018 15:30 PM for ROR developer role.
+</p>
+<br>
+<p>
+	<a href="localhost:3000/invitation/accept/2">Accept</a>invitation - or - <a href="localhost:3000/invitation/reject/2">Reject</a> invitation.
+</p>
+<p>
+	Regards,
+</p>
+<p>
+	test
+</p>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 5004ms (ActiveRecord: 22.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:45:30 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:6
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:20
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:26
+  Rendered home/_org_user.html.erb (7.3ms)
+  Rendered home/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 28ms (Views: 22.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/candidates" for 127.0.0.1 at 2018-08-30 15:46:57 +0530
+Processing by CandidateController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:3
+  Rendering candidate/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/candidate/index.html.erb:17
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.7ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  Rendered candidate/index.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 47ms (Views: 36.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/candidates/invite/3/?job_id=2" for 127.0.0.1 at 2018-08-30 15:46:59 +0530
+Processing by CandidateController#invite as HTML
+  Parameters: {"job_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering candidate/invite.html.erb within layouts/application
+  Rendered candidate/invite.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/candidates/send_invitation" for 127.0.0.1 at 2018-08-30 15:47:03 +0530
+Processing by CandidateController#send_invitation as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S407rE8K4syZ/i0obUAE1Pj+QzFg4Kx8cIDLSAjjtG25QF6w4nX18IzBeEVzBXWneQUa8c7FuIqvLN/qunb5/g==", "candidate_id"=>"3", "job_id"=>"2", "invitation"=>{"interview_date"=>"30/08/2018 - 15:50"}, "commit"=>"Post Job"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:11
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:12
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCandidate Load (0.1ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mInvitation Create (0.2ms)[0m  [1m[32mINSERT INTO "invitations" ("candidate_id", "job_id", "organization_id", "interview_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["candidate_id", 3], ["job_id", 2], ["organization_id", 1], ["interview_date", "2018-08-30 15:50:00"], ["created_at", "2018-08-30 10:17:03.351263"], ["updated_at", "2018-08-30 10:17:03.351263"]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (25.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/notification_mailer.rb:13
+  Rendering notification_mailer/invite.html.erb within layouts/mailer
+  Rendered notification_mailer/invite.html.erb within layouts/mailer (0.5ms)
+NotificationMailer#invite: processed outbound mail in 5.7ms
+Sent mail to kishankumarpatel93@gmail.com (4131.9ms)
+Date: Thu, 30 Aug 2018 15:47:03 +0530
+From: kishanptl.kp@gmail.com
+To: kishankumarpatel93@gmail.com
+Message-ID: <5b87c41f5dca2_46061a6ac607403a@bit-H81M-WW.mail>
+Subject: Invitation for interview from test
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>
+	Dear Kishan,	
+</p>
+<p>
+	Your interview is scheduled  on 08/30/2018 15:50 PM for ROR developer role.
+</p>
+<br>
+<p>
+	<a href="localhost:3000/invitation/accept/3">Accept</a> <a href="localhost:3000/invitation/reject/3">Reject</a>
+</p>
+<p>
+	Regards,
+</p>
+<p>
+	test
+</p>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4184ms (ActiveRecord: 27.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:47:07 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:6
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:20
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:26
+  Rendered home/_org_user.html.erb (7.6ms)
+  Rendered home/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/candidates" for 127.0.0.1 at 2018-08-30 15:48:30 +0530
+Processing by CandidateController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:3
+  Rendering candidate/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/candidate/index.html.erb:17
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.8ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.7ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.5ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.8ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.5ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  Rendered candidate/index.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 51ms (Views: 39.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/candidates/invite/3/?job_id=2" for 127.0.0.1 at 2018-08-30 15:48:32 +0530
+Processing by CandidateController#invite as HTML
+  Parameters: {"job_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering candidate/invite.html.erb within layouts/application
+  Rendered candidate/invite.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/candidates/send_invitation" for 127.0.0.1 at 2018-08-30 15:48:36 +0530
+Processing by CandidateController#send_invitation as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fRTQK8fH3hJ0raZnCcyyAgZCg4ZuAflhvppLywYHBY2P2bU3arjJLmGS8woXicNxh7naRsAk7ZdhNl9ptJJIHg==", "candidate_id"=>"3", "job_id"=>"2", "invitation"=>{"interview_date"=>"31/08/2018 - 15:40"}, "commit"=>"Post Job"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCandidate Load (0.6ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:11
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:12
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mInvitation Create (0.7ms)[0m  [1m[32mINSERT INTO "invitations" ("candidate_id", "job_id", "organization_id", "interview_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["candidate_id", 3], ["job_id", 2], ["organization_id", 1], ["interview_date", "2018-08-31 15:40:00"], ["created_at", "2018-08-30 10:18:36.792977"], ["updated_at", "2018-08-30 10:18:36.792977"]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (28.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mOrganization Load (0.9ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/notification_mailer.rb:13
+  Rendering notification_mailer/invite.html.erb within layouts/mailer
+  Rendered notification_mailer/invite.html.erb within layouts/mailer (0.8ms)
+NotificationMailer#invite: processed outbound mail in 12.3ms
+Sent mail to kishankumarpatel93@gmail.com (3787.5ms)
+Date: Thu, 30 Aug 2018 15:48:36 +0530
+From: kishanptl.kp@gmail.com
+To: kishankumarpatel93@gmail.com
+Message-ID: <5b87c47ccc855_46061a6ab2074181@bit-H81M-WW.mail>
+Subject: Invitation for interview from test
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>
+	Dear Kishan,	
+</p>
+<p>
+	Your interview is scheduled  on 08/31/2018 15:40 PM for ROR developer role.
+</p>
+<br>
+<p>
+	<p>http://localhost:3000</p>
+	<a href="http://localhost:3000/invitation/accept/4">Accept</a> <a href="http://localhost:3000/invitation/reject/4">Reject</a>
+</p>
+<p>
+	Regards,
+</p>
+<p>
+	test
+</p>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 3856ms (ActiveRecord: 34.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:48:40 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:6
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:20
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:26
+  Rendered home/_org_user.html.erb (6.2ms)
+  Rendered home/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/invitation/accept/4" for 127.0.0.1 at 2018-08-30 15:49:19 +0530
+Processing by HomeController#accept_invitation as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/home_controller.rb:44
+  [1m[36mInvitation Update (0.2ms)[0m  [1m[33mUPDATE "invitations" SET "is_accepted" = $1, "updated_at" = $2 WHERE "invitations"."id" = $3[0m  [["is_accepted", true], ["updated_at", "2018-08-30 10:19:19.916182"], ["id", 4]]
+  ↳ app/controllers/home_controller.rb:44
+  [1m[35m (13.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/home_controller.rb:44
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:49:19 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."is_approve" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["is_approve", true]]
+  ↳ app/views/home/_candidate.html.erb:15
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  Rendered home/_candidate.html.erb (7.1ms)
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/invitation/reject/4" for 127.0.0.1 at 2018-08-30 15:49:26 +0530
+Processing by HomeController#reject_invitation as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:51
+  Rendering home/reject_invitation.html.erb within layouts/application
+  Rendered home/reject_invitation.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/candidates" for 127.0.0.1 at 2018-08-30 15:49:41 +0530
+Processing by CandidateController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:3
+  Rendering candidate/index.html.erb within layouts/application
+  [1m[36mJob Load (7.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/candidate/index.html.erb:17
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.4ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 2], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mInvitation Load (0.7ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.3ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 3], ["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.4ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (1.0ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.6ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 1], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  [1m[36mCandidate Load (0.2ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" INNER JOIN "candidates_jobs" ON "candidates"."id" = "candidates_jobs"."candidate_id" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/candidate/index.html.erb:18
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."candidate_id" = $1 AND "invitations"."job_id" = $2 ORDER BY "invitations"."id" DESC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:20
+  [1m[36mCandidatesJob Load (0.2ms)[0m  [1m[34mSELECT  "candidates_jobs".* FROM "candidates_jobs" WHERE "candidates_jobs"."candidate_id" = $1 AND "candidates_jobs"."job_id" = $2 ORDER BY "candidates_jobs"."id" ASC LIMIT $3[0m  [["candidate_id", 1], ["job_id", 3], ["LIMIT", 1]]
+  ↳ app/views/candidate/index.html.erb:24
+  Rendered candidate/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 53ms (Views: 34.2ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/candidates/invite/3/?job_id=2" for 127.0.0.1 at 2018-08-30 15:49:43 +0530
+Processing by CandidateController#invite as HTML
+  Parameters: {"job_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering candidate/invite.html.erb within layouts/application
+  Rendered candidate/invite.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 34ms (Views: 30.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/candidates/send_invitation" for 127.0.0.1 at 2018-08-30 15:49:47 +0530
+Processing by CandidateController#send_invitation as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qjm0/LcXLmnrMGYt4CGPVn6zentBD/9q5JkTDlSU7G6w9NHgGmg5Vf4PM0D+ZP4l/0gju+8q65w7NQes5gGh/Q==", "candidate_id"=>"3", "job_id"=>"2", "invitation"=>{"interview_date"=>"31/08/2018 - 15:20"}, "commit"=>"Post Job"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/bit/.rvm/gems/ruby-2.4.0@jobportal/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCandidate Load (0.2ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:11
+  [1m[36mJob Load (1.1ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:12
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCandidate Load (0.2ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mInvitation Create (0.2ms)[0m  [1m[32mINSERT INTO "invitations" ("candidate_id", "job_id", "organization_id", "interview_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["candidate_id", 3], ["job_id", 2], ["organization_id", 1], ["interview_date", "2018-08-31 15:20:00"], ["created_at", "2018-08-30 10:19:47.878770"], ["updated_at", "2018-08-30 10:19:47.878770"]]
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[35m (25.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/candidate_controller.rb:15
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/notification_mailer.rb:13
+  Rendering notification_mailer/invite.html.erb within layouts/mailer
+  Rendered notification_mailer/invite.html.erb within layouts/mailer (0.7ms)
+NotificationMailer#invite: processed outbound mail in 6.3ms
+Sent mail to kishankumarpatel93@gmail.com (3753.3ms)
+Date: Thu, 30 Aug 2018 15:49:47 +0530
+From: kishanptl.kp@gmail.com
+To: kishankumarpatel93@gmail.com
+Message-ID: <5b87c4c3deb07_46061a6ac60742f5@bit-H81M-WW.mail>
+Subject: Invitation for interview from test
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>
+	Dear Kishan,	
+</p>
+<p>
+	Your interview is scheduled  on 08/31/2018 15:20 PM for ROR developer role.
+</p>
+<br>
+<p>
+
+	<a href="http://localhost:3000/invitation/accept/5">Accept</a> <a href="http://localhost:3000/invitation/reject/5">Reject</a>
+</p>
+<p>
+	Regards,
+</p>
+<p>
+	test
+</p>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 3801ms (ActiveRecord: 28.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:49:51 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:6
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."organization_id" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["organization_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:20
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 3]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/home/_org_user.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates_jobs" WHERE "candidates_jobs"."job_id" = $1[0m  [["job_id", 1]]
+  ↳ app/views/home/_org_user.html.erb:26
+  Rendered home/_org_user.html.erb (5.1ms)
+  Rendered home/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/invitation/accept/5" for 127.0.0.1 at 2018-08-30 15:50:08 +0530
+Processing by HomeController#accept_invitation as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/home_controller.rb:44
+  [1m[36mInvitation Update (0.2ms)[0m  [1m[33mUPDATE "invitations" SET "is_accepted" = $1, "updated_at" = $2 WHERE "invitations"."id" = $3[0m  [["is_accepted", true], ["updated_at", "2018-08-30 10:20:08.846944"], ["id", 5]]
+  ↳ app/controllers/home_controller.rb:44
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/home_controller.rb:44
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:50:08 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."is_approve" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["is_approve", true]]
+  ↳ app/views/home/_candidate.html.erb:15
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  Rendered home/_candidate.html.erb (5.3ms)
+  Rendered home/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/invitation/reject/5" for 127.0.0.1 at 2018-08-30 15:50:12 +0530
+Processing by HomeController#reject_invitation as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:51
+  Rendering home/reject_invitation.html.erb within layouts/application
+  Rendered home/reject_invitation.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/invitation/reject_job" for 127.0.0.1 at 2018-08-30 15:50:15 +0530
+Processing by HomeController#reject_job as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aklRhwtAjzuk8vTZNetQ9wBgnz2HLO820ObFP621QRjTFCzo0PZ68I++ldope2N3UQmOCiH5qtQvnCpsIhWjWA==", "id"=>"5", "invitation"=>{"rejected_reason"=>"srfsdf"}, "commit"=>"Reject"}
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:55
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/home_controller.rb:57
+  [1m[36mCandidate Load (0.2ms)[0m  [1m[34mSELECT  "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:57
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:57
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."id" = $2 LIMIT $3[0m  [["is_archive", false], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:57
+  [1m[36mInvitation Update (0.6ms)[0m  [1m[33mUPDATE "invitations" SET "is_accepted" = $1, "rejected_reason" = $2, "updated_at" = $3 WHERE "invitations"."id" = $4[0m  [["is_accepted", false], ["rejected_reason", "srfsdf"], ["updated_at", "2018-08-30 10:20:15.425128"], ["id", 5]]
+  ↳ app/controllers/home_controller.rb:57
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/home_controller.rb:57
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-30 15:50:15 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."is_archive" = $1 AND "jobs"."is_approve" = $2 ORDER BY created_at DESC[0m  [["is_archive", false], ["is_approve", true]]
+  ↳ app/views/home/_candidate.html.erb:15
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  [1m[36mCACHE Organization Load (0.0ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_candidate.html.erb:20
+  Rendered home/_candidate.html.erb (5.5ms)
+  Rendered home/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.6ms)
+
+
