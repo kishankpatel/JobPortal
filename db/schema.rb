@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_08_29_105316) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "candidates", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2018_08_29_105316) do
   end
 
   create_table "candidates_jobs", force: :cascade do |t|
-    t.integer "candidate_id"
-    t.integer "job_id"
+    t.bigint "candidate_id"
+    t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidates_jobs_on_candidate_id"
@@ -70,4 +73,6 @@ ActiveRecord::Schema.define(version: 2018_08_29_105316) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidates_jobs", "candidates"
+  add_foreign_key "candidates_jobs", "jobs"
 end
