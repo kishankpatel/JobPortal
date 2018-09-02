@@ -6,5 +6,7 @@ class CreateCandidatesJobs < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+	add_index :candidates_jobs, [:candidate_id, :job_id], unique: true
   end
+
 end

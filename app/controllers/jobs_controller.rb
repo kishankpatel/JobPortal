@@ -5,6 +5,10 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = current_user.organization.jobs.approved
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   # GET /jobs/1

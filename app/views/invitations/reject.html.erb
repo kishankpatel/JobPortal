@@ -1,5 +1,5 @@
 <div class="login-form">
-  <%= form_with(model: @invitation, url:"/invitation/reject_job", local: true) do |f| %>
+  <%= form_with(model: @invitation, url:reject_job_invitations_path, local: true) do |f| %>
     <h2 class="text-center">Reject invitation</h2>   
     <% if @invitation.errors.any? %>
       <div id="error_explanation">

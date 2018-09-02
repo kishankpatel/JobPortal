@@ -24,7 +24,7 @@
           <td><%= candidate.candidates_jobs.where(:job_id => job.id).first.created_at %></td>
           <td><%=invitation.present? ? "Invitations sent" : "Invitations not sent"%></td>
           <td><%= invitation.present? ? (invitation.is_accepted ? "Accepted" : (invitation.is_accepted == false ? "Rejected" : "Not Decided")) : ""%></td>
-          <td><a href="/candidates/invite/<%=candidate.id%>/?job_id=<%=job.id%>">Invite</a></td>
+          <td><a href="<%=invite_candidate_path(candidate.id, job_id: job.id)%>">Invite</a></td>
         </tr>
       <% end %>
    <%end%>
