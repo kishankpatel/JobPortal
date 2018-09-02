@@ -1,8 +1,7 @@
 class CandidatesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @jobs = current_user.organization.jobs
-    @candidates = @jobs.include(:candidates)
+    @jobs = current_user.organization.jobs.includes({:candidates => :invitations})
   end
 
   def create

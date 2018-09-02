@@ -19,7 +19,7 @@
         <Cell><Data ss:Type="Number"><%= job.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= job.title %></Data></Cell>
         <Cell><Data ss:Type="String"><%= job.description %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= job.candidates_jobs.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= job.candidates.count %></Data></Cell>
         <Cell><Data ss:Type="String"><%= job.created %></Data></Cell>
         <Cell><Data ss:Type="String"><%= job.is_approve ? "Approved" : "Unapproved" %></Data></Cell>
       </Row>
