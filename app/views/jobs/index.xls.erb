@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Description</Data></Cell>
+        <Cell><Data ss:Type="String">Applied Count</Data></Cell>
+        <Cell><Data ss:Type="String">Posted On</Data></Cell>
+        <Cell><Data ss:Type="String">Approved/Unapproved</Data></Cell>
+      </Row>
+    <% @jobs.each do |job| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= job.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= job.title %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= job.description %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= job.candidates.count %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= job.created %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= job.is_approve ? "Approved" : "Unapproved" %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

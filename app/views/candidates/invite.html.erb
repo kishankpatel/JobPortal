@@ -1,5 +1,5 @@
 <div class="login-form">
-  <%= form_with(model: @invitation, url:"/candidates/send_invitation", local: true) do |f| %>
+  <%= form_with(model: @invitation, url: send_invitation_candidates_path, local: true) do |f| %>
     <h2 class="text-center">Send invitation</h2>   
     <% if @invitation.errors.any? %>
       <div id="error_explanation">

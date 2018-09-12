@@ -10,20 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_105316) do
+ActiveRecord::Schema.define(version: 2018_09_02_132336) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "candidates", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "candidates_jobs", force: :cascade do |t|
-    t.integer "candidate_id"
-    t.integer "job_id"
+    t.bigint "candidate_id"
+    t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["candidate_id", "job_id"], name: "index_candidates_jobs_on_candidate_id_and_job_id", unique: true
     t.index ["candidate_id"], name: "index_candidates_jobs_on_candidate_id"
     t.index ["job_id"], name: "index_candidates_jobs_on_job_id"
   end
@@ -40,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_105316) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
     t.integer "user_id"
     t.integer "organization_id"
@@ -51,7 +55,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_105316) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,4 +74,6 @@ ActiveRecord::Schema.define(version: 2018_08_29_105316) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidates_jobs", "candidates"
+  add_foreign_key "candidates_jobs", "jobs"
 end

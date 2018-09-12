@@ -7,7 +7,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @organization.name = organization_name
       @organization.save
     else
-      @organization = Organization.find_by_name(params[:user][:organization_name])
+      flash[:alert] = "Organization already exists, please try another one."
+      redirect_to request.referrer
+      return
     end
 
     params[:user][:organization_id] = @organization.id

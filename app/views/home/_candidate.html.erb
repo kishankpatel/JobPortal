@@ -19,7 +19,7 @@
           <td><%= job.description %></td>
           <td><%= job.organization.name %></td>
           <td><%= job.created %></td>
-          <td><%= link_to 'Apply', "/apply_job/#{job.id}" %></td>
+          <td><%= link_to 'Apply', apply_job_path("#{job.id}") %></td>
         </tr>
       <% end %>
     <%end%>

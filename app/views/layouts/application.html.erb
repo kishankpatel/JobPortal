@@ -34,9 +34,12 @@
             <ul class="nav navbar-nav">
               <li ><a href="/">Home</a></li>
               <% if user_signed_in? %>
-                <li ><a href="/jobs">Jobs</a></li>
-                <li ><a href="/candidates">Candidates</a></li>
+                <%if current_user.role == "org_user"%>
+                  <li ><a href="/jobs">Jobs</a></li>
+                  <li ><a href="/candidates">Applicants</a></li>
+                <%end%>
                 <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                <li ><a href="javascript:void(0)">Logged in as: <%=current_user.email%> (<%=current_user.role%>)</a></li>
               <% else %>
                 <li>
                   <%= link_to('Login', new_user_session_path)  %>  

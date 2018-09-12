@@ -21,9 +21,9 @@
           <td><%= job.created %></td>
           <td>
             <%if job.is_approve%>
-              <%= link_to 'Unapprove', "/unapprove/#{job.id}" %>
+              <%= link_to 'Unapprove', unapprove_job_path("#{job.id}") %>
             <%else%>
-              <%= link_to 'Approve', "/approve/#{job.id}" %>
+              <%= link_to 'Approve', approve_job_path("#{job.id}") %>
             <%end%>
               
           </td>

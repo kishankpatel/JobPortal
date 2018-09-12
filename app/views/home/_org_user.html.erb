@@ -23,7 +23,7 @@
           <td><%= job.title %></td>
           <td><%= job.description %></td>
           <td><%= job.organization.name %></td>
-          <td><%= job.candidates_jobs.count %></td>
+          <td><%= job.candidates.count %></td>
           <td><%= job.created %></td>
           <td><%= job.is_approve ? "Approved" : "Unapproved" %></td>
           <td><%= link_to 'Show', job %></td>
